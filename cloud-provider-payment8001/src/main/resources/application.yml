@@ -11,6 +11,14 @@ spring:
     username: root
     password: 123456
 
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.lencho.springcloud.entities
