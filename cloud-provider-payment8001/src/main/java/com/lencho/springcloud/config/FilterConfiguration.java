@@ -1,7 +1,10 @@
 package com.lencho.springcloud.config;
 
 import com.lencho.springcloud.filter.LoginFilter;
+import com.lencho.springcloud.listener.MyHttpSessionListener;
+import com.lencho.springcloud.listener.MyServletRequestListener;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,5 +26,13 @@ public class FilterConfiguration {
         registration.setName("loginFilter");
         registration.setOrder(1); // 设置过滤器被调用的顺序
         return registration;
+    }
+
+    @Bean
+    public ServletListenerRegistrationBean listenerRegist() {
+        ServletListenerRegistrationBean srb = new ServletListenerRegistrationBean();
+        srb.setListener(new MyServletRequestListener());
+        System.out.println("listener");
+        return srb;
     }
 }

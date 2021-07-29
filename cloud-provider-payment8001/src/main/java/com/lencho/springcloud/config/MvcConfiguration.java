@@ -1,6 +1,9 @@
 package com.lencho.springcloud.config;
 
 import com.lencho.springcloud.interceptor.LoginInterceptor;
+import com.lencho.springcloud.listener.MyHttpSessionListener;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -34,4 +37,6 @@ public class MvcConfiguration implements WebMvcConfigurer {
                 "/**/*.ttf"
         );
     }
+
+
 }
