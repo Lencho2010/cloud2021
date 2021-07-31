@@ -14,5 +14,36 @@
         select *
         from student;
     </select>
+
+    <!-- 查询1 -->
+    <select id="selectForPage1" resultType="com.lencho.mybatis.entites.Student">
+        select *
+        from student limit #{param1},#{param2}
+    </select>
+    <!-- 查询2-->
+    <select id="selectForPage2" resultType="com.lencho.mybatis.entites.Student">
+        select *
+        from student limit #{startIndex},#{pageSize}
+    </select>
+    <!-- 查询总条数-->
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*)
+        from student
+    </select>
+
+    <!-- 查询5-->
+    <select id="selectForPage4" resultType="com.lencho.mybatis.entites.Student">
+        select *
+        from student
+        where name like "%"#{param3}"%"
+            limit #{param1}
+            , #{param2}
+    </select>
+    <!-- 模糊查询查询总条数-->
+    <select id="selectCount2" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*)
+        from student
+        where name like "%"#{value}"%"
+    </select>
 </mapper>
 
