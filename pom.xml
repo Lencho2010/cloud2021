@@ -27,6 +27,7 @@
         <module>cloudalibaba-consumer-nacos-order83</module>
         <module>MyBatis_01_HelloWorld</module>
         <module>lencho-restfull-api-pack3020</module>
+        <module>cloudalibaba-config-nacos-client3377</module>
     </modules>
     <packaging>pom</packaging>
 
