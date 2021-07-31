@@ -33,4 +33,9 @@ public class StudentController {
     public List<Map> queryStudents(){
         return testService.queryStudents();
     }
+
+    @GetMapping("/queryStudents2")
+    public List<Map> queryStudents2(){
+        return testService.queryStudents2();
+    }
 }

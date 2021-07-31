@@ -4,6 +4,8 @@ import com.lencho.mybatis.config.SqlSessionFactoryConfig;
 import com.lencho.mybatis.dao.StudentMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,12 +19,24 @@ import java.util.Map;
 @Service
 public class TestService {
 
-    @Resource
+    @Autowired
+    @Qualifier("masterSqlSessionFactory")
     SqlSessionFactory factory;
 
-    public List<Map> queryStudents(){
+    public List<Map> queryStudents() {
 
         SqlSession sqlSession = factory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        return mapper.queryAll();
+    }
+
+    @Autowired
+    @Qualifier("secondSqlSessionFactory")
+    SqlSessionFactory secondFactory;
+
+    public List<Map> queryStudents2() {
+
+        SqlSession sqlSession = secondFactory.openSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         return mapper.queryAll();
     }
