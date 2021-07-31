@@ -1,0 +1,6 @@
+server:
+  port: 3020
+
+spring:
+  application:
+    name: restfull-api-pack
